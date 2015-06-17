@@ -1,0 +1,6 @@
+Name: Certencryption
+Description: Module to encrypt strings with ssl keys
+License: Apache 2.0
+Author: FILIADATA GmbH
+PerlRequire:
+  - Crypt::OpenSSL::RSA
