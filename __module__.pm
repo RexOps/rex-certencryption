@@ -91,7 +91,7 @@ sub encrypt {
   my $o = Crypt::OpenSSL::RSA->new_public_key($key_string);
   _use_padding($o, $padding);
 
-  my @chunks = grep { $_ } ($str =~ m/(.{0,300})/g);
+  my @chunks = unpack("(A300)*", $str);
   my $line = "";
   for my $chunk (@chunks) {
     $line .= encode_base64($o->encrypt($chunk), "") . "\n";
